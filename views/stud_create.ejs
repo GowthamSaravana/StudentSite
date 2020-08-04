@@ -1,0 +1,143 @@
+<html>
+<head>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: #f1f1f1;
+  }
+
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 40px;
+    margin-top: 50px;
+
+
+  }
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+input[type=text], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+
+}
+input[type=text]:focus{
+  border : 200px;
+}
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+button[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 4px 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:center;
+
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Student List</h1>
+  </div>
+
+  <div class="topnav">
+    <a href="/info/students">Student List</a>
+    <a href="/info/index" style="float:right">Back to Index</a>
+
+  </div>
+
+<div class="card" >
+
+  <form action="/info/stud/create" method="POST">
+    <h2>CREATE NEW STUDENT:</h2>
+    <label for="name">Name</label>
+    <br/>
+    <input type ="text" name="name" placeholder ="Name" required>
+    <br/>
+    <label for="age">Age</label>
+    <br/>
+    <input type="text" name="age" placeholder="Age" required>
+    <br/>
+
+    <button type="submit">Insert</button>
+  </form>
+</div>
+</body>
+</html>
