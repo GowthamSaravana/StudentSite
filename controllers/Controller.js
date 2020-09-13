@@ -16,7 +16,6 @@ exports.index = function(req, res, next) {
 exports.stud_list = function(req, res, next) {
 
   Student.find()
-  //.populate('name')
   .sort([['name', 'ascending']])
   .exec(function (err, list_studs) {
     if (err) { return next(err); }
@@ -30,12 +29,9 @@ exports.stud_list = function(req, res, next) {
 
 exports.stud_delete = function(req, res, next) {
 
-    // Assume the post has valid id (ie no validation/sanitization).
           let id2 = req.params.id;
             Student.findByIdAndRemove(id2, function(err,Output) {
                 if (err) { return next(err); }
-                // Success - got to books list.
-                //res.send(id2);
                 res.redirect('/info/students');
             });
 
@@ -43,15 +39,10 @@ exports.stud_delete = function(req, res, next) {
 
 exports.stud_create_get = function(req, res) {
     res.render('stud_create.ejs',{title : 'Create Student'});
-
-
 };
 
-// Handle book create on POST.
-exports.stud_create_post = [
-    // Convert the genre to an array.
 
-    // Validate fields.
+exports.stud_create_post = [
     body('name', 'Name must not be empty.').trim().isLength({ min: 1 }),
     body('age', 'Age must not be empty.').trim().isLength({ min: 1 }),
     //body('summary', 'Summary must not be empty.').trim().isLength({ min: 1 }),
@@ -66,26 +57,21 @@ exports.stud_create_post = [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
 
-        // Create a Book object with escaped and trimmed data.
+        
         var student = new Student(
           { name: req.body.name,
-            age: req.body.age,
-            //summary: req.body.summary,
-            //genre: req.body.genre
+            age: req.body.age;
            });
 
         if (!errors.isEmpty()) {
             // There are errors. Render form again with sanitized values/error messages.
-
-            // Get all authors and genres for form.
                 res.render('stud_create.ejs', { title: 'Create Anime', student: student, errors: errors.array() });
                 return;
           }
           else {
-              // Data from form is valid. Save book.
+              // Data from form is valid. Save Student.
               student.save(function (err) {
-                  if (err) { return next(err); }
-                     //successful - redirect to new book record.
+                  if (err) { return next(err); }                     
                      res.redirect('/info/students');
                   });
           }
