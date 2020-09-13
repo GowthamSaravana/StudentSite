@@ -8,12 +8,7 @@ const duo_web = require('@duosecurity/duo_web');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var infoRouter  = require('./routes/info');
-
 var app = express();
-
-
-//const MongoClient = require('mongodb').MongoClient;
-//const connectionString = 'mongodb+srv://mydb:mydb123@cluster0.ifyt2.mongodb.net/Employee?retryWrites=true&w=majority';
 
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://mydb:mydb123@cluster0.ifyt2.mongodb.net/Employee?retryWrites=true&w=majority'
