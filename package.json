@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@duosecurity/duo_web": "^1.0.5",
-    "async": "^3.2.0",
+    "async": "^3.2.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
